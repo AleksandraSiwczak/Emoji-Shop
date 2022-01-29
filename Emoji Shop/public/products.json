@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Teddy",
+    "price": {
+      "value": 100,
+      "currency": "PLN"
+    },
+    "item": "ʕ•ᴥ•ʔ"
+  },
+  {
+    "id": 2,
+    "name": "Magic",
+    "price": {
+      "value": 120,
+      "currency": "PLN"
+    },
+    "item": "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧"
+  },
+  {
+    "id": 3,
+    "name": "Flip the table",
+    "price": {
+      "value": 180,
+      "currency": "PLN"
+    },
+    "item": "(╯°□°）╯︵ ┻━┻"
+  },
+  {
+    "id": 4,
+    "name": "Success",
+    "price": {
+      "value": 90,
+      "currency": "PLN"
+    },
+    "item": "(ง^ᗜ^)ง"
+  },
+  {
+    "id": 5,
+    "name": "Crying",
+    "price": {
+      "value": 80,
+      "currency": "PLN"
+    },
+    "item": "(╥_╥)"
+  },
+  {
+    "id": 6,
+    "name": "Kitten",
+    "price": {
+      "value": 200,
+      "currency": "PLN"
+    },
+    "item": "(=^･^=)"
+  }
+]
