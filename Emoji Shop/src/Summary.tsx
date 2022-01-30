@@ -1,4 +1,6 @@
 import "./App.css"
+import "./index.css"
+import "./Summary.css"
 import { NavLink } from "react-router-dom";
 import { useState} from 'react';
 import type { Product } from "./App";
@@ -66,6 +68,7 @@ export const Summary = ({ products, onClear }: Props) => {
       <NavLink to="/">
         <button className="BackToShopButton">Back to shop</button>
       </NavLink>
+      
       <button className="PrankButton" onClick={handleBuyNow} disabled={products.length === 0}>Buy now</button>
 
       </div>

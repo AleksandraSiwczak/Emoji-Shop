@@ -1,5 +1,6 @@
 import "./App.css";
-// import { useState } from "react";
+import "./index.css";
+import "./CartItems.css";
 import type { Product } from "./App";
 import { NavLink } from "react-router-dom";
 
@@ -28,7 +29,7 @@ export const CartItems = ({ products, removeProduct, addProduct }: Props) => {
         );
       })}
 
-      <div>
+      <div className="ButtonsSection">
         <p>
           Totall price:{" "}
           {products
@@ -40,6 +41,9 @@ export const CartItems = ({ products, removeProduct, addProduct }: Props) => {
       <NavLink to="/">
         <button>Back to shop </button>
       </NavLink>
+      <NavLink to="/summary"> 
+            <button className="Summary">Summary</button>
+          </NavLink>
     </div>
   );
 };

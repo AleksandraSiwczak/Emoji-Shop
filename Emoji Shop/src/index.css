@@ -1,13 +1,60 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  min-height: 100vh;
+  font-family: "Dongle", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-size: calc(10px + 2vmin);
+  color: rgba(62, 104, 83, 0.774);
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  width: 100px;
+  color: rgba(0, 0, 0, 0.534);
+  height: 40px;
+  font-size: 15px;
+  text-decoration: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(62, 104, 83, 0.774);
+  border-radius: 5px;
+  font-family: "Dongle", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(122, 122, 122, 0.829);
+  -moz-box-shadow: 1px 1px 4px 0px rgba(122, 122, 122, 0.829);
+  box-shadow: 1px 1px 4px 0px rgba(122, 122, 122, 0.829);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(92, 143, 117, 0.774);
+}
+
+@media only screen and (max-width: 550px) {
+  .Container {
+    display: grid;
+    grid-template-rows: 0.2fr 1fr 0.2fr;
+  }
+  .Content {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 }

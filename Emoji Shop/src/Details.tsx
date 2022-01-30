@@ -1,4 +1,6 @@
 import "./App.css"
+import "./Details.css"
+import "./index.css"
 import type { Product } from './App'
 
 type Props = {

@@ -1,4 +1,5 @@
 import "./App.css";
+import "./index.css"
 
 import { useEffect, useState } from "react";
 import { Details } from "./Details";
@@ -55,25 +56,24 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="Page">
-        <div className="Header">
-          <div className="React-Shop-Header">
-            <header>React Emoji Shop</header>
+      <div className="Container">
+        <div className="Nav">
+          <div className="ReactShopHeader">
+            <h1>React Emoji Shop</h1>
           </div>
-          <div className="Cart">
+          <div className="Navigation">
             
             <p> {cart.length}</p>
 
             <NavLink to="/cart">
               <img
-                src="https://github.githubassets.com/images/icons/emoji/unicode/1f6d2.png"
+                src={process.env.PUBLIC_URL+"/iconmonstr-shopping-cart-thin-240.png"} 
                 alt="cart"
               />
+              
             </NavLink>
             
-            <NavLink to="/summary"> 
-            <button className="Summary">Summary</button>
-            </NavLink>
+        
           </div>
         </div>
         <div className="Content">
@@ -81,13 +81,13 @@ const App = () => {
             <Route
               path="/"
               element={
-                <ul className="xxx">
+                <ul className="Products">
                   {products.map((product) => {
                     const { id, name } = product;
                     const isExpanded = selectedProductId === product.id;
                     return (
                       <li key={id}>
-                        <div className="Item">
+                        
                           <div className="ItemName">{name}</div>
                           <div className="Button">
                             <button onClick={() => toggleDetailsList(id)}>
@@ -96,7 +96,7 @@ const App = () => {
                             <button onClick={() => addToCart(product)}>
                               Add to cart
                             </button>
-                          </div>
+                         
                         </div>
                         {isExpanded && <Details product={product} />}
                       </li>
@@ -120,6 +120,7 @@ const App = () => {
             <Route path="/summary" element={<Summary products={cart} onClear={clearCart} />}></Route>
           </Routes>
         </div>
+       <div className="Footer"><p>Created by Aleksandra Siwczak</p></div>
       </div>
     </BrowserRouter>
   );
