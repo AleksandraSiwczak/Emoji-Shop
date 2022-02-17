@@ -1,5 +1,5 @@
 import "./App.css";
-import "./index.css"
+import "./index.css";
 
 import { useEffect, useState } from "react";
 import { Details } from "./Details";
@@ -7,13 +7,14 @@ import { CartItems } from "./CartItems";
 import { BrowserRouter, NavLink } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import {Summary} from "./Summary";
+import { Summary } from "./Summary";
+import { getProducts } from "./db";
 export type Price = {
   value: number;
-  currency: 'PLN';
+  currency: "PLN";
 };
 export type Product = {
-  id: number;
+  id: string;
   item: string;
   price: Price;
   name: string;
@@ -21,7 +22,7 @@ export type Product = {
 
 const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [selectedProductId, setSelectedProductId] = useState<null | number>(
+  const [selectedProductId, setSelectedProductId] = useState<null | string>(
     null
   );
 
@@ -29,12 +30,10 @@ const App = () => {
   // const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/products.json")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
+    getProducts().then((data) => setProducts(data));
   }, []);
 
-  const toggleDetailsList = (id: number) => {
+  const toggleDetailsList = (id: string) => {
     setSelectedProductId((oldId) => (oldId === id ? null : id));
   };
 
@@ -43,16 +42,19 @@ const App = () => {
   };
 
   const clearCart = () => {
-    setCart([])
-  }
+    setCart([]);
+  };
 
-  const removeFromCart = (productIndex: number) => {
+  const removeFromCart = (productId: string) => {
     setCart((products) => {
+      const productIndex = products.findIndex(product=> product.id === productId)
       const updatedProducts = [...products];
       updatedProducts.splice(productIndex, 1);
       return updatedProducts;
     });
   };
+
+  
 
   return (
     <BrowserRouter>
@@ -62,23 +64,22 @@ const App = () => {
             <h1>React Emoji Shop</h1>
           </div>
           <div className="Navigation">
-            
             <p> {cart.length}</p>
 
             <NavLink to="/cart">
               <img
-                src={process.env.PUBLIC_URL+"/iconmonstr-shopping-cart-thin-240.png"} 
+                src={
+                  process.env.PUBLIC_URL +
+                  "/iconmonstr-shopping-cart-thin-240.png"
+                }
                 alt="cart"
               />
-              
             </NavLink>
-            
-        
           </div>
         </div>
         <div className="Content">
           <Routes>
-            <Route
+          <Route
               path="/"
               element={
                 <ul className="Products">
@@ -88,7 +89,7 @@ const App = () => {
                     return (
                       <li key={id}>
                         
-                          <div className="ItemName">{name}</div>
+                          <div className="ItemName">{name}{product.item}</div>
                           <div className="Button">
                             <button onClick={() => toggleDetailsList(id)}>
                               {!isExpanded ? "Show details" : "Hide details"}
@@ -104,23 +105,30 @@ const App = () => {
                   })}
                 </ul>
               }
+
             />
+            
+
+
             <Route
               path="/cart"
               element={
-                
-                  <CartItems
-                    products={cart}
-                    removeProduct={removeFromCart}
-                    addProduct={addToCart}
-                  />
-                
+                <CartItems
+                  products={cart}
+                  removeProduct={removeFromCart}
+                  addProduct={addToCart}
+                />
               }
             />
-            <Route path="/summary" element={<Summary products={cart} onClear={clearCart} />}></Route>
+            <Route
+              path="/summary"
+              element={<Summary products={cart} onClear={clearCart} />}
+            ></Route>
           </Routes>
         </div>
-       <div className="Footer"><p>Created by Aleksandra Siwczak</p></div>
+        <div className="Footer">
+          <p>Created by Aleksandra Siwczak</p>
+        </div>
       </div>
     </BrowserRouter>
   );

@@ -14,20 +14,29 @@
 	box-shadow: 0px 0px 12px 2px rgba(146, 138, 129, 1);
   }
   
-  .Result{
-	width: 800px;
-	height: 400px;
-	background-color: white;
+  .SummaryContent {
+	width: 100%;
+	height: 100%;}
+  .ItemSummary {
    
-	
-	border-radius: 10px;
-	margin-top: 100px;
-	margin-bottom: 20px;
-	-webkit-box-shadow: 0px 0px 12px 2px rgba(146, 138, 129, 1);
-	-moz-box-shadow: 0px 0px 12px 2px rgba(146, 138, 129, 1);
-	box-shadow: 0px 0px 12px 2px rgba(146, 138, 129, 1);
+   border-bottom: 1px solid rgba(62, 104, 83, 0.774);;
+   display: flex;
+   align-items: center;
+   width: 800px;
+   height: 80px;
+  
+  
   }
-  ol{
-	list-style: none;
+  .ButtonsSection{
+	display: flex;
+	flex-direction: row;
   }
+  
+  .CartButton{
+   
+	border-radius: 2px;
+	width: 20px;
+	height: 20px;
+  } 
+  
   

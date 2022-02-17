@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
+
 }
 
 body {
@@ -27,6 +28,7 @@ button {
   width: 100px;
   color: rgba(0, 0, 0, 0.534);
   height: 40px;
+   margin-right: 20px;
   font-size: 15px;
   text-decoration: none;
   border: none;
@@ -48,7 +50,7 @@ button:hover {
   background-color: rgba(92, 143, 117, 0.774);
 }
 
-@media only screen and (max-width: 550px) {
+/* @media only screen and (max-width: 550px) {
   .Container {
     display: grid;
     grid-template-rows: 0.2fr 1fr 0.2fr;
@@ -57,4 +59,4 @@ button:hover {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
-}
+} */

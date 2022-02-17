@@ -44,11 +44,13 @@ export const Summary = ({ products, onClear }: Props) => {
   //     'x_x', 
   //     [{ name: 'x_x', } ,{ name: 'x_x', }]
   //   ], 
-  //   ['O_o', [{ name: 'O_o'}, { name: 'O_o'}, { name: 'O_o'}]]
-  // ]
+  //   [
+  //     'O_o', 
+  //     [{ name: 'O_o'}, { name: 'O_o'}, { name: 'O_o'}]]
+  //   ]
   
   const result = Object.entries(groupedItems).map(([, items]) => (
-    <li key={items[0].id}>
+    <li className="ItemSummary" key={items[0].id}>
       {items[0].name} / {items.length}
     </li>
   ));
@@ -60,7 +62,7 @@ export const Summary = ({ products, onClear }: Props) => {
   return (
     <div className="SummaryContent">
       
-      {prankMessage && <div className="PrankMessage"><p>{prankMessage}{}</p></div>}
+      {prankMessage && <p>{prankMessage}</p>}
       
       {!prankMessage && <div className="Result"><ol>{result} </ol></div>}
      

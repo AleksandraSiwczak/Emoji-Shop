@@ -1,8 +1,8 @@
 .Container {
   height: 100vh;
-
+  background-color: white;
   display: grid;
-  grid-template-rows: 0.2fr 1fr 0.2fr;
+  grid-template-rows: 0.2fr 1fr 0.01fr;
 }
 .Nav {
   font-size: 30px;
@@ -10,36 +10,41 @@
   display: grid;
   grid-template-columns: 1fr 0.2fr;
   grid-template-areas: "header nav";
-
+  background-color: white;
   border-bottom: 2px solid rgba(62, 104, 83, 0.774);
 }
 .ReactShopHeader {
   grid-area: header;
   display: flex;
   justify-content: center;
+  background-color: white;
 }
-.Navigation {
+
+ .Navigation {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
   font-size: 15px;
-
+  background-color: white;
   grid-area: nav;
 }
 .Content {
  display: flex;
- justify-content: center;
+ justify-content: flex-start;
  align-items: center;
-  display: grid;
-  grid-template-rows: 2fr 0.1fr;
+ background-color: white;
+
+}
+.Footer{
+  background-color: rgba(244, 248, 245, 0.781);
 }
 
 .Products {
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 1rem;
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-start;
+ 
 }
 
 img {
@@ -49,11 +54,28 @@ img {
 }
 
 li {
-  background-color: #ececeac7;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  background-color: rgba(244, 248, 245, 0.781);
+  height: 80px;
+  width: 800px;
   border-radius: 10px;
+  box-shadow: 30px; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   border: 2px solid rgba(62, 104, 83, 0.774);
+  margin-left: 50px;
+  box-shadow: 5px 5px 20px 0px rgba(122, 122, 122, 0.829);
+  
+  
+}
+.Button{
+display: flex;
+flex-direction: row;
+
+}
+p{
+  font-size: 15px;
 }
 
 .Cart {

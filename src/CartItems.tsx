@@ -4,46 +4,47 @@ import "./CartItems.css";
 import type { Product } from "./App";
 import { NavLink } from "react-router-dom";
 
+
+ 
+
+
+
+
 type Props = {
   products: Product[];
-  removeProduct: (index: number) => void;
+  removeProduct: (productId: string) => void;
   addProduct: (product: Product) => void;
 };
 
 export const CartItems = ({ products, removeProduct, addProduct }: Props) => {
   return (
     <div className="CartContent">
-     
-      {products.map((product, index) => {
-        return (
-          <div className="CartItems" key={index}>
-          
-              {" "}
+      <div className="CartItems">
+        {products.map((product, index) => {
+          return (
+            <div className="ItemsInCart" key={index}>
               {product.price.value / 100} {product.price.currency}
-              {product.item}{" "}
-              <div className="CartButtons">
-              <button onClick={() => removeProduct(index)}>remove</button>
-              <button onClick={() => addProduct(product)}>add</button>
-            </div>
-          </div>
-        );
-      })}
-
-      <div className="ButtonsSection">
-        <p>
-          Totall price:{" "}
-          {products
-            .map((product) => product.price.value)
-            .reduce((a, b) => a + b, 0) / 100}
-          {"PLN"}
-        </p>
+              {product.item}
+              
+              <button className="CartButton" onClick={() => removeProduct(product.id)}>-</button>
+              <button className="CartButton" onClick={() => addProduct(product)}>+</button>
+              </div>
+              
+            
+          );
+        })}
       </div>
-      <NavLink to="/">
-        <button>Back to shop </button>
-      </NavLink>
-      <NavLink to="/summary"> 
+      
+       
+        <NavLink to="/summary">
             <button className="Summary">Summary</button>
           </NavLink>
-    </div>
+        <NavLink to="/">
+          <button>Back to shop </button>
+        </NavLink>
+
+      </div>
+     
+  
   );
 };
